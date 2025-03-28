@@ -160,7 +160,9 @@ interface State {
 }
 
 const mainProgram =
-  argv
+  require.main === module
+  ? __filename
+  : argv
     .map(arg => arg.trim())
     .filter(
       arg =>

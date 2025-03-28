@@ -71,12 +71,14 @@ var ServerMode;
     ServerMode["PROXY"] = "proxy";
     ServerMode["MOCK"] = "mock";
 })(ServerMode || (ServerMode = {}));
-const mainProgram = (_a = process_1.argv
-    .map(arg => arg.trim())
-    .filter(arg => arg &&
-    !["ts-node", "node", "npx", "npm", "exec"].some(pattern => arg.includes(pattern) &&
-        !arg.match(/npm-cache/) &&
-        !arg.match(/_npx/)))[0]) !== null && _a !== void 0 ? _a : "";
+const mainProgram = require.main === module
+    ? __filename
+    : (_a = process_1.argv
+        .map(arg => arg.trim())
+        .filter(arg => arg &&
+        !["ts-node", "node", "npx", "npm", "exec"].some(pattern => arg.includes(pattern) &&
+            !arg.match(/npm-cache/) &&
+            !arg.match(/_npx/)))[0]) !== null && _a !== void 0 ? _a : "";
 const runAsMainProgram = mainProgram.toLowerCase().replace(/[-_]/g, "").includes("localtraffic") &&
     !mainProgram.match(/(.|-)?(test|spec)\.m?[jt]sx?$/);
 const filename = !runAsMainProgram
