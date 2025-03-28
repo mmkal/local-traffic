@@ -1,7 +1,7 @@
 {
-  "name": "local-traffic",
+  "name": "mmkal-local-traffic",
   "version": "0.1.10",
-  "main": "./dist/local-traffic.js",
+  "main": "./dist/index.js",
   "private": false,
   "keywords": [
     "reverse-proxy",
@@ -23,7 +23,7 @@
     "zipify": "node ./zipify.js ./dist/terser.js > ./dist/local-traffic.js",
     "remove-useless-whitespaces": "cat ./dist/index.js | sed -e 's/^[ \t]*//' > ./dist/minified.js",
     "terser": "terser ./dist/minified.js -c -m --toplevel > ./dist/terser.js",
-    "chmod": "chmod a+x ./dist/local-traffic.js",
+    "chmod": "chmod a+x ./dist/local-traffic.js && chmod a+x ./dist/index.js",
     "clean": "rm -rf dist",
     "build": "npm run clean && npm run typescript && npm run remove-useless-whitespaces && npm run terser && npm run zipify && npm run chmod",
     "crash-test": "node ./dist/local-traffic.js --crash-test",
@@ -35,7 +35,7 @@
     "typescript": "^5.8.2"
   },
   "bin": {
-    "local-traffic": "dist/local-traffic.js"
+    "mmkal-local-traffic": "dist/index.js"
   },
   "engines": {
     "node": ">=8"

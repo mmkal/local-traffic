@@ -6,7 +6,7 @@ renovate.json
 !dist/local-traffic.js
 dist/minified.js
 dist/terser.js
-dist/index.js
+# dist/index.js
 zipify.js
 test
 .vscode

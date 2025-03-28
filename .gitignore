@@ -1,5 +1,5 @@
 .idea
-dist/index.js
+# dist/index.js
 dist/minified.js
 dist/terser.js
 dist/local-traffic.js
